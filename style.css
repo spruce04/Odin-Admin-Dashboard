@@ -1,17 +1,16 @@
-
-
 body, html {
     margin: 0;
     height: 100%;
     max-width: 100vw;
-    background-color: var(--light-bg);
+    background-color: var(--dark-font);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 :root {
     --dark-bg: #340040;
     --dark-font: #dc3d4b;
     --mid-bg: #07F2F2;
-    --gray-bg:#D3D3D3;
+    --gray-bg:#e2e8f0;
     --light-bg: white;
 }
 
@@ -19,7 +18,7 @@ body, html {
     height: 100%;
     display: grid;
     gap: 4px;
-    grid-template: 2fr 4fr 4fr 1fr / 1fr 4fr 1.5fr;
+    grid-template: 2fr 4fr 4fr .5fr / 1fr 4fr 1.5fr;
     grid-template-areas: 
     "sidebar header header"
     "sidebar articles info"
@@ -27,15 +26,11 @@ body, html {
     "sidebar footer footer";
 }
 
-.container * {
-    
-}
-
 .sidebar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     grid-area: sidebar;
     background-color: var(--mid-bg);
 }
@@ -44,20 +39,23 @@ body, html {
     grid-area: header;
     background-color: var(--dark-bg);
     color: var(--dark-font);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .sideListMain {
     font-size: 1.25rem;
 }
 
-.pitch {
+.ball {
     height: 80px;
-    padding-right: 10px;
 }
 
-.sideList, .sideListMain {
+.sideList {
     display: flex;
     align-items: center;
+    border: 3px solid var(--mid-bg)
 }
 
 .sideList img {
@@ -68,10 +66,13 @@ body, html {
 .articles {
     grid-area: articles;
     background-color: var(--gray-bg);
-}
-
-.articles * {
-    background-color: var(--light-bg);
+    display: grid;
+    gap: 2vh;
+    grid-template: .5fr 2fr 2fr / 1fr 1fr;
+    grid-template-areas: 
+    "news news"
+    "articleOne articleTwo"
+    "articleThree articleFour";
 }
 
 .info {
@@ -81,5 +82,161 @@ body, html {
 
 .footer {
     background-color: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--dark-font);
     grid-area: footer;
+}
+
+.footer a {
+    color: var(--dark-font);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sideBarList li {
+    padding-bottom: 5vh;
+}
+
+.pep {
+    max-height: 120px;
+    border-radius: 100px;
+    margin-right: 3vw;
+    margin-left: 3vw;
+}
+
+.smallpep {
+    max-height: 60px;
+    border-radius: 50px;
+    margin-right: 1vw; 
+    margin-bottom: 1vh;
+}
+
+.largeText {
+    font-size: 2.5rem;
+}
+
+p {
+    margin: 0;
+}
+
+.arrow {
+    max-height: 60px;
+    margin-right: 1vw;
+}
+
+.headerText, .rank, .profile {
+    display: flex;
+    align-items: center;
+}
+
+.rank {
+    font-size: 2rem;
+}
+
+.profile:hover, .sideList:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.profile {
+    font-size: 1.75rem;
+}
+
+.newsTitle {
+    grid-area: news;
+    padding: 5px;
+    font-size: 2rem;
+}
+
+.articleOne {
+    grid-area: articleOne;
+}
+
+.articleTwo {
+    grid-area: articleTwo;
+}
+
+.articleThree {
+    grid-area: articleThree;
+}
+
+.articleFour {
+    grid-area: articleFour;
+}
+
+.articles img {
+    max-width: 28vw;
+    max-height: 28vh;
+}
+
+#article * {
+    display: inline-flex;   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 5px;
+}
+
+#article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#article *:hover {
+    cursor: pointer;
+}
+
+.infoWrap {
+    display: grid;
+    gap: 20px;
+    grid-template-rows: repeat(autofit, minmax(150px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.infoWrap * {
+    padding-left: .5vw;
+}
+
+.hardFix {
+    background-color: var(--dark-font);
+}
+
+.noFix {
+    background-color: var(--light-bg);
+}
+
+.midFix {
+    background-color: #5A5A5A;
+}
+
+.ezFix {
+    background-color: #05F26C;
+}
+
+.fixturesTitle {
+    padding: 5px;
+    padding-bottom: 1vh;
+    font-size: 2rem;
+}
+
+#fixtureDifficulty * {
+    display: none;
+}
+
+#fixtureDifficulty:hover * {
+    display: block;
+    position: absolute;
+    background-color: white;
+}
+
+.smallText {
+    font-size: 1rem;
 }
